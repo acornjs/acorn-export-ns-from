@@ -64,6 +64,38 @@ describe("acorn-export-ns-from", () => {
     ],
     sourceType: "module"
   }))
+  test("export * as class from 'source';", newNode({
+    type: "Program",
+    start: 0,
+    end: 32,
+    body: [
+      newNode({
+        type: "ExportNamedDeclaration",
+        start: 0,
+        end: 32,
+        declaration: null,
+        specifiers: [newNode({
+          type: "ExportNamespaceSpecifier",
+          start: 7,
+          end: 17,
+          exported: newNode({
+            type: "Identifier",
+            start: 12,
+            end: 17,
+            name: "class"
+          })
+        })],
+        source: newNode({
+          type: "Literal",
+          start: 23,
+          end: 31,
+          value: "source",
+          raw: "'source'"
+        })
+      })
+    ],
+    sourceType: "module"
+  }))
   testFail("export * as ns from 'source';\nexport const ns = null;", "Duplicate export 'ns' (2:13)")
   testFail("export const ns = null;\nexport * as ns from 'source';", "Duplicate export 'ns' (2:12)")
 })
