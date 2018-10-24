@@ -18,7 +18,7 @@ module.exports = function(Parser) {
       if (this.eatContextual("as")) {
         node.declaration = null
         specifier.exported = this.parseIdent(true)
-        this.checkExport(exports, specifier.exported.name, this.lastTokStart)
+        this.checkExport(exports, specifier.exported.name, specified.exported.start)
         node.specifiers = [this.finishNode(specifier, "ExportNamespaceSpecifier")]
       }
       this.expectContextual("from")
