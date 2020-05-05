@@ -2,9 +2,9 @@
 
 const skipWhiteSpace = /(?:\s|\/\/.*|\/\*[^]*?\*\/)*/g
 
-const tt = require("acorn").tokTypes
-
 module.exports = function(Parser) {
+  const tt = (Parser.acorn || require("acorn")).tokTypes
+
   return class extends Parser {
     parseExport(node, exports) {
       skipWhiteSpace.lastIndex = this.pos
