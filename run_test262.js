@@ -8,10 +8,10 @@ const acornExportNsFrom = require(".")
 const Parser = acorn.Parser.extend(acornExportNsFrom)
 
 run(
-  (content, options) => Parser.parse(content, {sourceType: options.sourceType, ecmaVersion: 10}),
+  (content, options) => Parser.parse(content, {sourceType: options.sourceType, ecmaVersion: 11}),
   {
     testsDirectory: path.dirname(require.resolve("test262/package.json")),
-    skip: test => !(test.attrs.features && test.attrs.features.includes("export-star-as-namespace-from-module") && !test.attrs.features.includes("dynamic-import")),
+    skip: test => !(test.attrs.features && test.attrs.features.includes("export-star-as-namespace-from-module")),
     whitelist: fs.readFileSync("./test262.whitelist", "utf8").split("\n").filter(v => v && v[0] !== "#")
   }
 )

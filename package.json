@@ -23,7 +23,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "acorn": "^6.0.5",
+    "acorn": "^7",
     "eslint": "^6",
     "eslint-plugin-node": "^11",
     "mocha": "^7",
