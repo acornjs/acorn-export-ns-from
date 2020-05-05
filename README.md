@@ -4,7 +4,7 @@
 
 This is a plugin for [Acorn](http://marijnhaverbeke.nl/acorn/) - a tiny, fast JavaScript parser, written completely in JavaScript.
 
-It implements support for export namespace from as defined in the proposal [Add \`export * as ns from "mod"\` to Export production and Module Semantic](https://github.com/tc39/ecma262/pull/1174). The emitted AST follows [ESTree](https://github.com/leebyron/ecmascript-more-export-from/blob/master/ESTree.md).
+It implements support for export namespace from as defined in the proposal [Add \`export * as ns from "mod"\` to Export production and Module Semantic](https://github.com/tc39/ecma262/pull/1174). The emitted AST follows [ESTree](https://github.com/estree/estree/blob/master/es2020.md#exportalldeclaration).
 
 ## Usage
 

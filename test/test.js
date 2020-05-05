@@ -38,21 +38,15 @@ describe("acorn-export-ns-from", () => {
     end: 29,
     body: [
       newNode({
-        type: "ExportNamedDeclaration",
+        type: "ExportAllDeclaration",
         start: 0,
         end: 29,
-        declaration: null,
-        specifiers: [newNode({
-          type: "ExportNamespaceSpecifier",
-          start: 7,
+        exported: newNode({
+          type: "Identifier",
+          start: 12,
           end: 14,
-          exported: newNode({
-            type: "Identifier",
-            start: 12,
-            end: 14,
-            name: "ns"
-          })
-        })],
+          name: "ns"
+        }),
         source: newNode({
           type: "Literal",
           start: 20,
@@ -70,21 +64,15 @@ describe("acorn-export-ns-from", () => {
     end: 32,
     body: [
       newNode({
-        type: "ExportNamedDeclaration",
+        type: "ExportAllDeclaration",
         start: 0,
         end: 32,
-        declaration: null,
-        specifiers: [newNode({
-          type: "ExportNamespaceSpecifier",
-          start: 7,
+        exported: newNode({
+          type: "Identifier",
+          start: 12,
           end: 17,
-          exported: newNode({
-            type: "Identifier",
-            start: 12,
-            end: 17,
-            name: "class"
-          })
-        })],
+          name: "class"
+        }),
         source: newNode({
           type: "Literal",
           start: 23,

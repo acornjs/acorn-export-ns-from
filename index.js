@@ -13,19 +13,16 @@ module.exports = function(Parser) {
       if (next !== "*") return super.parseExport(node, exports)
 
       this.next()
-      const specifier = this.startNode()
       this.expect(tt.star)
       if (this.eatContextual("as")) {
-        node.declaration = null
-        specifier.exported = this.parseIdent(true)
-        this.checkExport(exports, specifier.exported.name, specifier.exported.start)
-        node.specifiers = [this.finishNode(specifier, "ExportNamespaceSpecifier")]
-      }
+        node.exported = this.parseIdent(true)
+        this.checkExport(exports, node.exported.name, node.exported.start)
+      } else node.exported = null
       this.expectContextual("from")
       if (this.type !== tt.string) this.unexpected()
       node.source = this.parseExprAtom()
       this.semicolon()
-      return this.finishNode(node, node.specifiers ? "ExportNamedDeclaration" : "ExportAllDeclaration")
+      return this.finishNode(node, "ExportAllDeclaration")
     }
   }
 }
